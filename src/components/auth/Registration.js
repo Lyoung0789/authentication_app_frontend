@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class Registration extends Component {
 
@@ -12,6 +13,26 @@ export default class Registration extends Component {
 
 
     handleSubmit = (event) => {
+        const {
+            email, 
+            password, 
+            passwordConfirmation
+        } = this.state
+
+        // look at axios post request
+        axios.post("http://localhost:3001/registrations", {
+            user: {
+                email: email, 
+                password: password, 
+                password_confirmation: passwordConfirmation
+            }
+        }, 
+        { withCredentials: true }
+        ).then(response  => {
+            console.log("Registraion response", response)
+        }).catch(error => {
+            console.log("Registration error", error) 
+        })
         event.preventDefault()
         console.log("Form submitted")
     }
