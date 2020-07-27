@@ -3,18 +3,27 @@ import Registration from './auth/Registration'
 
 export default class Home extends Component {
 
-
+// I dont think i need this, but lets see. 
     constructor(props){
         super(props)
+    
+    }
+
+    handleSuccessfulAuth = data => {
+        console.log("I am from home")
+        this.props.handleLogin(data)
+        this.props.history.push("/dashboard")
+        
     }
 
 
     render(){
+        // debugger
         return(
             <div>
                 <h1>Home</h1>
                 <h1>Status: {this.props.loggedInStatus}</h1>
-                <Registration />
+                <Registration handleSuccessfulAuth = {this.handleSuccessfulAuth}/>
             </div>
         )
     }

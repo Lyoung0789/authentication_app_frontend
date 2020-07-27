@@ -4,6 +4,7 @@ import axios from 'axios'
 export default class Registration extends Component {
 
     state = {
+
         email: "", 
         password: "", 
         passwordConfirmation: "",
@@ -29,6 +30,10 @@ export default class Registration extends Component {
         }, 
         { withCredentials: true }
         ).then(response  => {
+            if (response.data.status === "created"){
+                this.props.handleSuccessfulAuth(response.data)
+            }
+            
             console.log("Registraion response", response)
         }).catch(error => {
             console.log("Registration error", error) 
