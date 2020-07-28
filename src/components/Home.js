@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Registration from './auth/Registration'
 import Login from './auth/Login'
 import axios from 'axios'
+import Got from './Got'
 
 export default class Home extends Component {
 
@@ -39,6 +40,7 @@ export default class Home extends Component {
                 <button onClick={() => this.handleLogoutClick()}>Logout</button>
                 <Registration handleSuccessfulAuth = {this.handleSuccessfulAuth}/>
                 <Login handleSuccessfulAuth= {this.handleSuccessfulAuth}/> 
+                <Got />
             </div>
         )
     }

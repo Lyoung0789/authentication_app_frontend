@@ -1,4 +1,5 @@
 import React from 'react'
+import Got from './Got'
 
 export default function Dashboard(props) {
 
@@ -6,6 +7,7 @@ export default function Dashboard(props) {
         <div>
             <h1>Dashboard</h1>
             <h1>Status: {props.loggedInStatus}</h1>
+            {/* <Got /> */}
         </div>
     )
 }
